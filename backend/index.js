@@ -1,6 +1,10 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const mongoose = require("mongoose");
+import express from "express";
+import cookieParser from "cookie-parser";
+import mongoose from "mongoose";
+
+// import UserSchema from "./models/user.js";
+import "./models/user.js";
+import setUpRoutes from "./routes.js";
 
 // connect to Mongo DB
 mongoose.connect(
@@ -12,7 +16,8 @@ mongoose.connect(
   });
 
 // register User model with Mongoose
-require("./models/user");
+// mongoose.model("User", UserSchema);
+
 
 // initialize the server
 const app = express();
@@ -29,8 +34,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// declare routes
-require("./routes")(app);
+// setup routes
+setUpRoutes(app);
 
 // start server
 app.listen(3001, (err) => {

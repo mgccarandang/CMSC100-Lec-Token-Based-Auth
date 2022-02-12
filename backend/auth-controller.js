@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
 
 
 // get user model registered in Mongoose
 const User = mongoose.model("User");
 
-exports.signUp = (req, res) => {
+const signUp = (req, res) => {
   const newuser = new User({
     name: req.body.name,
     email: req.body.email,
@@ -21,7 +21,7 @@ exports.signUp = (req, res) => {
   });
 }
 
-exports.login = (req, res) => {
+const login = (req, res) => {
   const email = req.body.email.trim();
   const password = req.body.password;
 
@@ -58,7 +58,7 @@ exports.login = (req, res) => {
   })
 }
 
-exports.checkIfLoggedIn = (req, res) => {
+const checkIfLoggedIn = (req, res) => {
 
   if (!req.cookies || !req.cookies.authToken) {
     // Scenario 1: FAIL - No cookies / no authToken cookie sent
@@ -90,3 +90,5 @@ exports.checkIfLoggedIn = (req, res) => {
       });
     });
 }
+
+export { signUp, login, checkIfLoggedIn }
