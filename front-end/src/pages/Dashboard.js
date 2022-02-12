@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 export default class Dashboard extends Component {
@@ -57,7 +57,7 @@ export default class Dashboard extends Component {
         // render the page
         return (
           <div>
-            Welcome to the Dashboard, { this.state. username }
+            Welcome to the Dashboard, { this.state.username }
 
             <br />
             <button id="logout" onClick={this.logout}>Log Out</button>
@@ -67,7 +67,7 @@ export default class Dashboard extends Component {
 
       else {
         // redirect
-        return <Redirect to="/" />
+        return <Navigate to="/" />
       }
     }
   }
