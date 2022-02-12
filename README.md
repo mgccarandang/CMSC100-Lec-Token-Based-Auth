@@ -1,6 +1,6 @@
 # How to run the server
 
-1. Make sure your MongoDB server is running. The Back-end server will connect to / create a database called AUTH. You do not need to manually create this database.
+1. Make sure your MongoDB server is running. The Back-end server will connect to OR create a database called AUTH. You do not need to manually create this database.
 
 2. Start the server
 
